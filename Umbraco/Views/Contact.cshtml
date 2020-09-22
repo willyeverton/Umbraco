@@ -6,24 +6,25 @@ Layout = "Layout.cshtml";
 <div class="container text-center" style="margin-top: 50px; margin-bottom: 100px;">
 	<h2 style="">Contato</h2>
 	<div class="text-center card col-md-12 bg-danger text-white"
-			style="margin-top: 50px;
+		 style="margin-top: 50px;
             margin-bottom: 50px;
             padding-top: 25px;
             padding-right: 25px;
             padding-left: 25px;
             padding-bottom: 25px;
 ">
-		<form asp-controller="Controller/ContactController" asp-action="SubmitContact" method="POST">
-			<div class="row">
-				<div class="col-md-6">
-					<input type="text" placeholder="Nome" class="form-control mb-3">
-				</div>
-				<div class="col-md-6">
-					<input id="input-name-form-2" type="email" placeholder="E-mail" class="form-control mb-3">
-				</div>
+		@using(Html.BeginForm("SubmitContact", "ContactController", FormMethod.Post))
+		{
+		<div class="row">
+			<div class="col-md-6">
+				<input type="text" placeholder="Nome" class="form-control mb-3">
 			</div>
-			<textarea id="contact-message-2" rows="5" placeholder="Menssagem" class="form-control mb-3"></textarea>
-			<button type="submit" style="width: 160px;" class="btn btn-dark">Enviar</button>
-		</form>
+			<div class="col-md-6">
+				<input id="input-name-form-2" type="email" placeholder="E-mail" class="form-control mb-3">
+			</div>
+		</div>
+		<textarea id="contact-message-2" rows="5" placeholder="Menssagem" class="form-control mb-3"></textarea>
+		<button type="submit" style="width: 160px;" class="btn btn-dark">Enviar</button>
+		}
 	</div>
 </div>
