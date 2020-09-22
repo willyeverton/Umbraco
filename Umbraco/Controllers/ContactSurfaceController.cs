@@ -21,14 +21,17 @@ namespace Umbraco.Controllers
 
         private void SendEmail(ContactModel model)
         {
-            string to = "willy.everton.s.nascimento@gmail.com";
-            //string to = "hit@hitdigital.com.br";
+            string to = "hit@hitdigital.com.br";
 
             MailMessage message = new MailMessage(model.email, to);
             message.Subject = model.name + " - " + model.email;
             message.Body = model.message;
 
-            SmtpClient client = new SmtpClient("172.0.0.1", 25);
+            SmtpClient client = new SmtpClient("smtp.mailtrap.io", 2525);
+
+            client.Credentials = new System.Net.NetworkCredential("810e1f1fa8ba68", "4e20ad70f5f020");
+            client.EnableSsl = true;
+            
             client.Send(message);
         }
     }
