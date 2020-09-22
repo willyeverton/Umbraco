@@ -6,7 +6,7 @@ using System.Net.Mail;
 
 namespace Umbraco.Controllers
 {
-    public class ContactController : SurfaceController
+    public class ContactSurfaceController : SurfaceController
     {
 
         public ActionResult SubmitContact(ContactModel model)

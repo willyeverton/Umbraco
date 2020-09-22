@@ -13,17 +13,20 @@ Layout = "Layout.cshtml";
             padding-left: 25px;
             padding-bottom: 25px;
 ">
-		@using(Html.BeginForm("SubmitContact", "ContactController", FormMethod.Post))
+		@using(Html.BeginUmbracoForm("SubmitContact", "ContactSurface", FormMethod.Post))
 		{
+		@Html.AntiForgeryToken()
+		@Html.ValidationSummary()
+
 		<div class="row">
 			<div class="col-md-6">
-				<input type="text" placeholder="Nome" class="form-control mb-3">
+				<input type="text" name="name" placeholder="Nome" class="form-control mb-3">
 			</div>
 			<div class="col-md-6">
-				<input id="input-name-form-2" type="email" placeholder="E-mail" class="form-control mb-3">
+				<input id="input-name-form-2" name="email" type="email" placeholder="E-mail" class="form-control mb-3">
 			</div>
 		</div>
-		<textarea id="contact-message-2" rows="5" placeholder="Menssagem" class="form-control mb-3"></textarea>
+		<textarea id="contact-message-2" name="message" rows="5" placeholder="Menssagem" class="form-control mb-3"></textarea>
 		<button type="submit" style="width: 160px;" class="btn btn-dark">Enviar</button>
 		}
 	</div>
